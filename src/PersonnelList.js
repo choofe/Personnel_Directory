@@ -141,13 +141,13 @@ const PersonnelList = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen text-center">
+    <div className="p-6 bg-gray-100 min-h-screen text-right">
       <h1 className="text-2xl font-bold mb-4">اطلاعات تماس پرسنل</h1>
       {groups.map((group, index) => (
         <div key={index} className="mb-4">
           <button
             onClick={() => toggleGroup(index)}
-            className="w-full text-center bg-blue-200 text-white p-10 text-xl rounded-lg font-bold"
+            className="w-full text-right bg-blue-500 text-white p-3 rounded-lg font-semibold"
           >
             {group.name}
           </button>
@@ -162,20 +162,19 @@ const PersonnelList = () => {
                 {group.contacts.map((contact, i) => (
                   <li
                     key={i}
-                    className={`flex items-center justify-between border-b py-10 px-10 text-xl 
-  			${shiftTeams[currentShift]?.some(name => name.trim() === contact.name.trim()) ? 'bg-green-150' : ''}`}
-		  >
+                    className={`flex items-center justify-between border-b py-2 text-lg ${shiftTeams[currentShift]?.includes(contact.name) ? 'bg-green-200' : ''}`}
+                  >
                     <a
-                      href={`tel:${contact.phone + " "}`}
-                      className="ltr text-blue-600 underline text-lg font-semibold"
+                      href={`tel:${contact.phone}`}
+                      className="ltr text-blue-600 underline"
                     >
                       {contact.phone}
                     </a>
                     
                     {contact.role !="" ? (
-                      <span className="text-sm text-black-600 flex-grow text-center">{" " + contact.role + " "}</span>
+                      <span className="text-sm text-black-600 absolute left-1/2 transform -translate-x-1/2">{contact.role}</span>
                     ) : null}
-                    <span className="rtl text-left">{" " + contact.name}</span>
+                    <span className="rtl text-right">{contact.name}</span>
                   </li>
                 ))}
               </ul>
