@@ -141,7 +141,7 @@ const PersonnelList = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen text-right">
+    <div className="p-6 bg-gray-100 min-h-screen text-center">
       <h1 className="text-2xl font-bold mb-4">اطلاعات تماس پرسنل</h1>
       {groups.map((group, index) => (
         <div key={index} className="mb-4">
