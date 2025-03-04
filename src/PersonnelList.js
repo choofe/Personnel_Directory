@@ -128,6 +128,7 @@ const getCurrentShift = () => {
 const PersonnelList = () => {
   const [currentShift, setCurrentShift] = useState(getCurrentShift());
   const [openGroups, setOpenGroups] = useState({});
+  const groupRefs = useRef({});
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -152,7 +153,9 @@ const PersonnelList = () => {
             {group.name}
           </button>
           <div
-            className={`overflow-hidden transition-all duration-500 ease-in-out ${openGroups[index] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+            ref={(el) => (groupRefs.current[index] = el)}
+            style={{ maxHeight: openGroups[index] ? `${groupRefs.current[index]?.scrollHeight}px` : "0px" }}
+            className="overflow-hidden transition-all duration-500 ease-in-out"
           >
             {openGroups[index] && (
               <div className="mt-2 p-4 bg-white shadow-lg rounded-lg">
