@@ -128,7 +128,6 @@ const getCurrentShift = () => {
 const PersonnelList = () => {
   const [currentShift, setCurrentShift] = useState(getCurrentShift());
   const [openGroups, setOpenGroups] = useState({});
-  const groupRefs = useRef({});
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -152,40 +151,34 @@ const PersonnelList = () => {
           >
             {group.name}
           </button>
-          <div
-            ref={(el) => (groupRefs.current[index] = el)}
-            style={{ maxHeight: openGroups[index] ? `${groupRefs.current[index]?.scrollHeight}px` : "0px" }}
-            className="overflow-hidden transition-all duration-500 ease-in-out"
-          >
-            {openGroups[index] && (
-              <div className="mt-2 p-4 bg-white shadow-lg rounded-lg">
-                {group.shiftTracking && (
-                  <div className="mb-2 text-sm text-gray-600">
-                    شیفت فعلی: <strong>Team {currentShift}</strong>
-                  </div>
-                )}
-                <ul>
-                  {group.contacts.map((contact, i) => (
-                    <li
-                      key={i}
-                      className={`flex flex-wrap items-center justify-between border-b py-2 px-4 text-lg ${shiftTeams[currentShift]?.includes(contact.name) ? 'bg-green-200' : ''}`}
+          {openGroups[index] && (
+            <div className="mt-2 p-4 bg-white shadow-lg rounded-lg">
+              {group.shiftTracking && (
+                <div className="mb-2 text-sm text-gray-600">
+                  شیفت فعلی: <strong>Team {currentShift}</strong>
+                </div>
+              )}
+              <ul>
+                {group.contacts.map((contact, i) => (
+                  <li
+                    key={i}
+                    className={`flex flex-wrap items-center justify-between border-b py-2 px-4 text-lg ${shiftTeams[currentShift]?.includes(contact.name) ? 'bg-green-200' : ''}`}
+                  >
+                    <a
+                      href={`tel:${contact.phone}`}
+                      className="ltr text-blue-600 underline"
                     >
-                      <a
-                        href={`tel:${contact.phone}`}
-                        className="ltr text-blue-600 underline"
-                      >
-                        {contact.phone}
-                      </a>
-                      {contact.role && (
-                        <span className="text-xs sm:text-sm text-black-600 flex-grow text-center whitespace-nowrap overflow-hidden">{contact.role}</span>
-                      )}
-                      <span className="rtl text-right w-1/3">{contact.name}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
+                      {contact.phone}
+                    </a>
+                    {contact.role && (
+                      <span className="text-xs sm:text-sm text-black-600 flex-grow text-center whitespace-nowrap overflow-hidden">{contact.role}</span>
+                    )}
+                    <span className="rtl text-right w-1/3">{contact.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       ))}
     </div>
