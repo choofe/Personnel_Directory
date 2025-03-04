@@ -118,10 +118,10 @@ const shiftTeams = {
 
 const getCurrentShift = () => {
   const teamNames = Object.keys(shiftTeams);
-  const shiftStart = new Date("2025-03-03T08:00:00");
+  const shiftStart = new Date("2025-03-03T20:00:00");
   const now = new Date();
   const elapsedMinutes = Math.floor((now - shiftStart) / (1000 * 60));
-  const shiftIndex = Math.floor(elapsedMinutes / (8 * 60)) % 3  ; // Changed to 8-hour shift
+  const shiftIndex = Math.floor(elapsedMinutes / (12 * 60)) % 3  ; // Changed to 8-hour shift
   return teamNames[shiftIndex];
 };
 
