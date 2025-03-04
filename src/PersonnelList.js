@@ -166,16 +166,16 @@ const PersonnelList = () => {
   			${shiftTeams[currentShift]?.some(name => name.trim() === contact.name.trim()) ? 'bg-green-200' : ''}`}
 		  >
                     <a
-                      href={`tel:${contact.phone}`}
+                      href={`tel:${contact.phone + " "}`}
                       className="ltr text-blue-600 underline text-lg font-semibold"
                     >
                       {contact.phone}
                     </a>
                     
                     {contact.role !="" ? (
-                      <span className="text-sm text-black-600 flex-grow text-center">{contact.role}</span>
+                      <span className="text-sm text-black-600 flex-grow text-center">{" " + contact.role + " "}</span>
                     ) : null}
-                    <span className="rtl text-right">{contact.name}</span>
+                    <span className="rtl text-left">{" " + contact.name}</span>
                   </li>
                 ))}
               </ul>
