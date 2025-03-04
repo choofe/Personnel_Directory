@@ -13,7 +13,7 @@ const groups = [
 	]
 },
 
-{name: "پله برقي", contacts: 
+{name: "پله برقي", shiftTracking: true, contacts: 
 	[
 		{name: "مهدي محمد نژاد", role: "2106", phone: "09369299698"},
 		{name: "جواد يادگاري", role: "1896", phone: "09192259665"},
@@ -34,7 +34,7 @@ const groups = [
 	]
 },
 
-{name: "آسانسور", contacts: 
+{name: "آسانسور", shiftTracking: true, contacts: 
 	[
 		{name: "ميلاد خيرخواه", role: "1680", phone: "09377771850"},
 		{name: "مهدي بيات", role: "2107", phone: "09127135092"},
@@ -74,7 +74,7 @@ const groups = [
 		{name: "قاسم شمس الهي", role: "2147", phone: "09356099223"},
 		{name: "محمد داداش زاد", role: "2144", phone: "09198383386"},
 		{name: "قدرت شيخي", role: "7867", phone: "09199928925"},
-		{name: "عباس حسيني", role: "7643", phone: "09120219785"},
+		{name: "عباس حسيني", role: "7643", phone: "09120219785"}
 	]
 },
 
