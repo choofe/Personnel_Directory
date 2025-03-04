@@ -147,43 +147,42 @@ const PersonnelList = () => {
         <div key={index} className="mb-4">
           <button
             onClick={() => toggleGroup(index)}
-            className="w-full text-center bg-blue-200 text-white p-3 rounded-lg font-semibold"
+            className="w-full text-center bg-blue-200 text-black p-3 rounded-lg font-semibold"
           >
             {group.name}
           </button>
-	  <div
-            className={`overflow-hidden transition-max-height duration-500 ease-in-out ${openGroups[index] ? 'max-h-screen' : 'max-h-0'}`}
+          <div
+            className={`overflow-hidden transition-all duration-500 ease-in-out ${openGroups[index] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
           >
-          {openGroups[index] && (
-            <div className="mt-2 p-4 bg-white shadow-lg rounded-lg">
-              {group.shiftTracking && (
-                <div className="mb-2 text-sm text-gray-600">
-                  شیفت فعلی: <strong>Team {currentShift}</strong>
-                </div>
-              )}
-              <ul>
-                {group.contacts.map((contact, i) => (
-                  <li
-                    key={i}
-                    className={`flex items-center justify-between border-b py-2 text-lg ${shiftTeams[currentShift]?.includes(contact.name) ? 'bg-green-200' : ''}`}
-                  >
-                    <a
-                      href={`tel:${contact.phone}`}
-                      className="ltr text-blue-600 underline"
+            {openGroups[index] && (
+              <div className="mt-2 p-4 bg-white shadow-lg rounded-lg">
+                {group.shiftTracking && (
+                  <div className="mb-2 text-sm text-gray-600">
+                    شیفت فعلی: <strong>Team {currentShift}</strong>
+                  </div>
+                )}
+                <ul>
+                  {group.contacts.map((contact, i) => (
+                    <li
+                      key={i}
+                      className={`flex flex-wrap items-center justify-between border-b py-2 px-4 text-lg ${shiftTeams[currentShift]?.includes(contact.name) ? 'bg-green-200' : ''}`}
                     >
-                      {contact.phone}
-                    </a>
-                    
-                    {contact.role !="" ? (
-                      <span className="text-sm text-black-600 absolute left-1/2 transform -translate-x-1/2">{contact.role}</span>
-                    ) : null}
-                    <span className="rtl text-right">{contact.name}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-	 </div>
+                      <a
+                        href={`tel:${contact.phone}`}
+                        className="ltr text-blue-600 underline"
+                      >
+                        {contact.phone}
+                      </a>
+                      {contact.role && (
+                        <span className="text-xs sm:text-sm text-black-600 flex-grow text-center whitespace-nowrap overflow-hidden">{contact.role}</span>
+                      )}
+                      <span className="rtl text-right w-1/3">{contact.name}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
       ))}
     </div>
