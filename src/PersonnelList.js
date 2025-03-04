@@ -173,7 +173,7 @@ const PersonnelList = () => {
                     {contact.role && (
                       <span className="text-xs sm:text-sm text-black-600 flex-grow text-center whitespace-nowrap overflow-hidden">{contact.role}</span>
                     )}
-                    <span className="rtl text-right w-1/3">{contact.name}</span>
+                    <span className="rtl text-right w-1/2">{contact.name}</span>
                   </li>
                 ))}
               </ul>
