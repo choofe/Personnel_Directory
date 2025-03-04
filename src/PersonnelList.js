@@ -147,10 +147,13 @@ const PersonnelList = () => {
         <div key={index} className="mb-4">
           <button
             onClick={() => toggleGroup(index)}
-            className="w-full text-center bg-blue-500 text-white p-3 rounded-lg font-semibold"
+            className="w-full text-center bg-blue-200 text-white p-3 rounded-lg font-semibold"
           >
             {group.name}
           </button>
+	  <div
+            className={`overflow-hidden transition-max-height duration-500 ease-in-out ${openGroups[index] ? 'max-h-screen' : 'max-h-0'}`}
+          >
           {openGroups[index] && (
             <div className="mt-2 p-4 bg-white shadow-lg rounded-lg">
               {group.shiftTracking && (
