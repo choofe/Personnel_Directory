@@ -183,6 +183,7 @@ const PersonnelList = () => {
               </ul>
             </div>
           )}
+	 </div>
         </div>
       ))}
     </div>
