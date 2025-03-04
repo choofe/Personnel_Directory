@@ -147,7 +147,7 @@ const PersonnelList = () => {
         <div key={index} className="mb-4">
           <button
             onClick={() => toggleGroup(index)}
-            className="w-full text-right bg-blue-500 text-white p-3 rounded-lg font-semibold"
+            className="w-full text-right bg-blue-500 text-white p-4 text-lg rounded-lg font-bold"
           >
             {group.name}
           </button>
@@ -162,8 +162,7 @@ const PersonnelList = () => {
                 {group.contacts.map((contact, i) => (
                   <li
                     key={i}
-                    className={`flex items-center justify-between border-b py-2 text-lg ${shiftTeams[currentShift]?.includes(contact.name) ? 'bg-green-200' : ''}`}
-                  >
+                    className={`flex items-center justify-between border-b py-3 px-4 text-lg ${shiftTeams[currentShift]?.includes(contact.name) ? 'bg-green-200' : ''}`}>
                     <a
                       href={`tel:${contact.phone}`}
                       className="ltr text-blue-600 underline"
