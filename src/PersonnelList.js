@@ -173,12 +173,14 @@ const PersonnelList = () => {
                                         key={i}
                                         className={`flex flex-wrap items-center justify-between border-b py-2 px-4 text-lg ${shiftTeams[currentShift]?.includes(contact.name) ? 'bg-green-200' : ''}`}
                                     >
-                                        <a
-                                            href={`tel:${contact.phone}`}
-                                            className="ltr text-blue-600 underline"
-                                        >
-                                            {contact.phone}
-                                        </a>
+                                        {contact.phone === "شماره تماس" ?
+                                            (<span className="ltr text-black"> contact.phone </span>) :
+                                            (<a
+                                                href={`tel:${contact.phone}`}
+                                                className="ltr text-blue-600 underline"
+                                            >
+                                                {contact.phone}
+                                            </a>)}
                                         {contact.role && (
                                             <span className="text-xs sm:text-sm text-black-600 flex-grow text-center whitespace-nowrap overflow-hidden">{contact.role}</span>
                                         )}
