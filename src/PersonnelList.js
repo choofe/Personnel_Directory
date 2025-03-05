@@ -160,7 +160,7 @@ const PersonnelList = () => {
 
     return (
         <div className="p-6 bg-gray-100 min-h-screen text-center">
-            <h1 className="text-2xl font-bold mb-4">اطلاعات تماس پرسنل</h1>
+            <h1 className="text-2xl font-bold mb-4">اطلاعات تماس پرسنل ماشین آلات</h1>
             {groups.map((group, index) => (
                 <div key={index} className="mb-4">
                     <button
@@ -172,7 +172,7 @@ const PersonnelList = () => {
                     {openGroups[index] && (
                         <div className="mt-2 p-4 bg-white shadow-lg rounded-lg">
                             {group.shiftTracking && (
-                                <div className="mb-2 text-sm text-gray-600">
+                                <div className="mb-2 text-sm text-gray-600 font-semibold">
                                     شیفت فعلی: <strong>Team {currentShift}</strong>
                                 </div>
                             )}
@@ -180,7 +180,7 @@ const PersonnelList = () => {
                                 {group.contacts.map((contact, i) => (
                                     <li
                                         key={i}
-                                        className={`flex flex-wrap items-center justify-between border-b py-2 px-4 text-lg ${shiftTeams[currentShift]?.includes(contact.name) ? 'bg-green-200' : ''}`}
+                                        className={`flex flex-wrap items-center justify-between border-b py-2 px-4 text-lg ${shiftTeams[currentShift]?.includes(contact.name) ? 'bg-green-200 font-semibold' : ''}`}
                                     >
                                         {contact.phone === "شماره تماس" ?
                                             (<span className="ltr text-black font-semibold"> {contact.phone} </span>) :
