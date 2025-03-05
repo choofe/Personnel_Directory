@@ -174,17 +174,18 @@ const PersonnelList = () => {
                                         className={`flex flex-wrap items-center justify-between border-b py-2 px-4 text-lg ${shiftTeams[currentShift]?.includes(contact.name) ? 'bg-green-200' : ''}`}
                                     >
                                         {contact.phone === "شماره تماس" ?
-                                            (<span className="ltr text-black"> {contact.phone} </span>) :
+                                            (<span className="ltr text-black font-semibold"> {contact.phone} </span>) :
                                             (<a
                                                 href={`tel:${contact.phone}`}
                                                 className="ltr text-blue-600 underline"
                                             >
                                                 {contact.phone}
                                             </a>)}
+
                                         {contact.role && (
-                                            <span className="text-xs sm:text-sm text-black-600 flex-grow text-center whitespace-nowrap overflow-hidden">{contact.role}</span>
+                                            <span className={`text-xs sm:text-sm text-black-600 flex-grow text-center whitespace-nowrap overflow-hidden ${contact.ro === "کد پرسنلی" ? 'font-semibold' : ''}`}> {contact.role}</span>
                                         )}
-                                        <span className="rtl text-right w-1/3">{contact.name}</span>
+                                        <span className={`rtl text-right w-1/3" ${contact.name === "نام نام خانوادگی" ? 'font-semibold' : ''} `}>{contact.name}</span>
                                     </li>
                                 ))}
                             </ul>
