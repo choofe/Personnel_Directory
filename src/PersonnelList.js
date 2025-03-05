@@ -185,7 +185,7 @@ const PersonnelList = () => {
                                         {contact.role && (
                                             <span className="text-xs sm:text-sm text-black-600 flex-grow text-center whitespace-nowrap overflow-hidden" > {contact.role}</span>
                                         )}
-                                        <span className={`rtl text-right w-1/3" ${contact.name === "نام نام خانوادگی" ? 'font-semibold' : ''} `}>{contact.name}</span>
+                                        <span className={`rtl text-right w-1/3 ${contact.name === "نام نام خانوادگی" ? 'font-semibold' : ''} `}>{contact.name}</span>
                                     </li>
                                 ))}
                             </ul>
